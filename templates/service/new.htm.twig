@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% form_theme formEmploye 'bootstrap_4_layout.html.twig'%}
+
+{% block body %}
+<div class="row"> 
+<div class="col-lg-3"></div>
+<div class="col-lg-6">
+<h1> 
+    {% if editMode  %}
+
+Modifier l'employer
+
+{% else %}
+Ajouter un employer
+   
+
+{% endif %}
+
+
+
+ </h1>
+ {{ form_start(formEmploye) }}
+
+{{ form_row(formEmploye.matricule, { 'attr':{'placeholder':"Matricule"}} ) }}
+{{ form_row(formEmploye.nomcomplet,{'attr':{'placeholder':"Nom Complete"} }) }}
+{{ form_row(formEmploye.datenaissance) }}
+{{ form_row(formEmploye.salaire,{'attr':{'placeholder':"Salaire"} }) }}
+{{ form_row(formEmploye.serices) }}
+
+ <button type="submit" class="btn btn-success">
+    {% if editMode  %}
+
+    Modifier l'employer
+
+    {% else %}
+    Ajouter un employer
+       
+
+    {% endif %}
+   
+  
+  </button> 
+
+{{ form_end(formEmploye) }}
+</div></div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div align=center>   
+
+    <h4 class="text-danger">Est vous sur de bien voloire supprimmer ? </h4> 
+<h4>   L'employé(e)
+{{employe.nomcomplet}} dont la Matricule est " {{employe.matricule}} " </h4>
+  <a href="{{path('deletecofirme',{'id':employe.id})}}" class="btn btn-success">Oui</a> &#160
+  <a href="{{path('service',{'id':employe.id})}}" class="btn btn-danger">Non</a>
+</div>
+
+{% endblock %}

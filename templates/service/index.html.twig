@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ServiceController!{% endblock %}
+
+{% block body %}
+<section class="articles">
+<h1> Liste des employers </h1> 
+<div class="table-responsive-lg">
+<table class="table table-hover">
+<thead> 
+  <tr>
+  <th>Matricule</th>
+  <th>Nom Complet</th>
+  <th>Date de Naissance</th>
+  <th>Salaire</th>
+  <th>Service</th>
+  <th> Modifier</th>
+  <th>Supprimmer</th>
+  </tr>
+</thead>
+{% for employe  in employes %}
+<tr class="table-primary">
+  <td>{{employe.matricule}} </td>
+  <td> {{employe.nomcomplet}} </td>
+  <td> {{employe.datenaissance |date ('d/m/Y')}}</td>
+  <td> {{employe.salaire}} </td>
+  <td> {{employe.serices.libelle}} </td>
+  <td><a href="{{path('edit_employe',{'id':employe.id})}}" class="btn btn-primary">Modifier </a></td>
+  <td><a href="{{path('delete',{'id':employe.id})}}" class="btn btn-danger">Supprimer </a></td>
+  </tr>
+  
+  
+    
+{% endfor %}
+
+</table>
+<div>
+</section>
+{% endblock %}
